@@ -47,7 +47,7 @@ const options = {
     },
 };
 
-const buildChartData = (data, casesType = 'cases') => {
+const buildChartData = (data, casesType) => {
     const chartData = [];
     let lastDataPoint;
     for (let date in data.cases) {
@@ -63,7 +63,7 @@ const buildChartData = (data, casesType = 'cases') => {
     return chartData;
 }
 
-function LineGraph({ casesType = 'cases' }) {
+function LineGraph({ casesType }) {
     const [data, setData] = useState({});
 
     useEffect(() => {
@@ -71,7 +71,7 @@ function LineGraph({ casesType = 'cases' }) {
             await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=30')
                 .then(response => response.json())
                 .then(data => {
-                    let chartData = buildChartData(data, 'cases');
+                    let chartData = buildChartData(data, casesType);
                     setData(chartData);
                 })
         }
