@@ -16,6 +16,10 @@ body {
   flex: 0.9;
 }
 
+.app__right {
+  margin-bottom: 16px;
+}
+
 .app__header {
   display: flex;
   align-items: center;
