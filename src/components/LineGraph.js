@@ -68,7 +68,7 @@ function LineGraph({ casesType = 'cases' }) {
 
     useEffect(() => {
         const fetchData = async () => {
-            await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=120')
+            await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=30')
                 .then(response => response.json())
                 .then(data => {
                     let chartData = buildChartData(data, 'cases');
@@ -87,8 +87,8 @@ function LineGraph({ casesType = 'cases' }) {
                         datasets: [{
                             backgroundColor: "rgba(204, 16, 52, 0.5)",
                             borderColor: "#CC1034",
-                            data: data
-                        }]
+                            data: data,
+                        }],
                     }}
                 />
             )}
